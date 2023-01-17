@@ -1,0 +1,219 @@
+using System;
+
+namespace Revision_Partiel
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Console.WriteLine("Ex00 : ");
+            // Console.Write(ft_fizzbuzz(3));
+            // Console.WriteLine();
+
+            // Console.WriteLine("Ex01 : ");
+            // Console.Write(ft_armstrong(153));
+            // Console.WriteLine();
+
+            // Console.WriteLine("Ex02 : ");
+            // Console.Write(ft_bissextile(2016));
+            // Console.WriteLine();
+
+            // Console.WriteLine("Ex03 : ");
+            // Console.Write(ft_blockbuster(150000000));
+            // Console.WriteLine();
+
+            // Console.WriteLine("Ex04 : ");
+            // ft_order_int_tab( new int[] { 7, 8, 5, 2, 2 });
+            // Console.WriteLine();
+
+            // Console.WriteLine("Ex05 : ");
+            // ft_rev_square_int_tab( new int[] { 7, 8, 5, 2, 17 });
+            // Console.WriteLine();
+
+            // Console.WriteLine("Ex06 : ");
+            // Console.WriteLine(ft_strlen("Stitch"));
+            // Console.WriteLine();
+
+            // Console.WriteLine("Ex07 : ");
+            // Console.WriteLine(ft_gauss(1, 100));
+            // Console.WriteLine();
+        }
+
+        public static string ft_fizzbuzz(int number)
+        {
+            int x = number % 5;
+            int y = number % 3;
+            if(x == 0 && y == 0)
+            {
+                return ("FizzBuzz");
+            }
+            if(x == 0 && y != 0)
+            {
+                return ("Fizz");
+            }
+            if(y == 0 && x != 0)
+            {
+                return("Buzz");
+            }
+
+            return ("");
+        }
+
+        public static string ft_armstrong(int number)
+        {
+            string longx = number.ToString();
+            int[] chiffre = new int[longx.Length];
+            int intermediare;
+            int index = 0;
+            int somme;
+            int sommetotale = 0;
+
+            foreach ( char c in number.ToString())
+            {
+                
+                intermediare = int.Parse(c.ToString());
+                chiffre[index] = intermediare;
+                index++;
+                
+            }
+            
+            for(int i = 0; i < longx.Length; i++)
+            {
+                somme = (int)Math.Pow(chiffre[i],longx.Length);
+                sommetotale  += somme;
+                           }
+            if(sommetotale == number)
+            {
+                
+                Console.WriteLine("Somme des chiffres du nombre : " + sommetotale);
+                return(number + " est Amstrong");
+            }
+            if (sommetotale != number)
+            {
+                
+                Console.WriteLine("Somme des chiffres du nombre: " + sommetotale);
+                return (number + " n'est pas Amstrong");
+            }
+            return ("chez ap");
+            
+        }
+
+        public static string ft_bissextile(int number)
+        {
+            if(number % 4 == 0 && number % 100 > 0)
+            {
+                return ("Cette année est bisessxtile");
+            }
+            if(number % 400 == 0)
+            {
+                return ("Cette année est bisessxtile");
+            }
+            else
+            {
+                return ("Cette année est normal");
+            }
+        }
+
+        public static int ft_blockbuster(int expense)
+        {
+            double RevenuTotale = 0;
+            double RevenuSemaine = 31000000;
+            int semaine = 0;
+
+            while(RevenuTotale < expense)
+            {
+                RevenuTotale  +=  RevenuSemaine;
+                RevenuSemaine *=  0.8;
+                semaine++;
+            }
+            return (semaine);
+
+        }
+
+        public static int[] ft_order_int_tab(int[] tab)
+        {
+            
+            
+            for (int i = 0; i < tab.Length; i++)
+            {
+                for(int j = i + 1; j < tab.Length; j++)
+                {
+                    if(tab[j] < tab[i]){
+
+                        int interm = tab[i];
+                        tab[i] = tab[j];
+                        tab[j] = interm;
+                    }
+                }
+            }
+            foreach(int a in tab)
+            {
+                Console.Write(a + ", ");
+            }
+            return (tab);
+            
+        }
+
+        public static int[] ft_rev_square_int_tab(int[] tab)
+        {
+            
+            for (int i = 0; i < tab.Length; i++)
+            {
+                for (int j = i + 1; j < tab.Length; j++)
+                {
+                    if (tab[j] > tab[i])
+                    {
+
+                        int interm = tab[i];
+                        tab[i] = tab[j];
+                        tab[j] = interm;
+                    }
+                }
+            }
+            for (int k = 0; k < tab.Length; k++)
+            {
+                tab[k] *= tab[k];
+            }
+
+            foreach (int a in tab)
+            {
+                Console.Write(a + ", ");
+            }
+            return (tab);
+        }
+
+        public static int ft_strlen(string word)
+        {
+            int longueur = 0;
+            foreach (char a in word)
+            {
+                longueur++;
+
+            }
+            return (longueur);
+        }
+
+        public static int ft_gauss(int a, int b)
+        {
+            int interm = 0;
+            while( a <= b)
+            {
+                interm += a;
+                a++;
+            }
+            if (interm == 0)
+            {
+                return (-1);
+            }
+            else
+            {
+                return (interm);
+            }
+        }
+    }
+
+
+
+
+ }
+
